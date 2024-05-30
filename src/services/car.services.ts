@@ -18,5 +18,8 @@ export class CarServices {
         const data = await prisma.car.update({ where: { id }, data: body });
         return data as TCar;
     }
-    async delete() {}
+    async delete(id: string): Promise<void> {
+        const data = await prisma.car.delete({ where: { id }});
+        return;
+    }
 }

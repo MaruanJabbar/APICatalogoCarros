@@ -22,5 +22,9 @@ export class CarControllers {
         const response = await carServices.update(req.params.id, req.body);
         return res.status(200).json(response);
     }
-    async delete(req: Request, res: Response) {}
+    async delete(req: Request, res: Response) {
+        const carServices = new CarServices();
+        const response = await carServices.delete(req.params.id);
+        return res.status(204).json();
+    }
 }
