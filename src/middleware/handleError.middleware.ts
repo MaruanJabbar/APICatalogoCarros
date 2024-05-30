@@ -9,7 +9,7 @@ export class HandlerErrors {
         if (err instanceof AppError) {
             return res.status(err.statusCode).json({ error: err.message });
         } else if (err instanceof ZodError) {
-            return res.status(409).json(err);
+            return res.status(400).json(err);
         } else {
             console.log(err);
             return res.status(500).json({ error: "Internal server error." });
