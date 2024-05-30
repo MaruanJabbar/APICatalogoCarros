@@ -12,9 +12,9 @@ export class CarControllers {
         const response = await carServices.findMany();
         return res.status(200).json(response);
     }
-    async findOne(req: Request, res: Response) {
+    findOne(req: Request, res: Response) {
         const carServices = new CarServices();
-        const response = await carServices.findOne(req.params.id);
+        const response = carServices.findOne(res.locals.car);
         return res.status(200).json(response);
     }
     async update(req: Request, res: Response) {

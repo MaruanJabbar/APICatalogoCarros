@@ -10,9 +10,8 @@ export class CarServices {
         const data = await prisma.car.findMany();
         return data as TCar[];
     }
-    async findOne(id: string): Promise<TCar> {
-        const data = await prisma.car.findFirst({ where: { id } });
-        return data as TCar;
+    findOne(car: TCar): TCar {
+        return car;
     }
     async update(id: string, body: TCarUpdate): Promise<TCar> {
         const data = await prisma.car.update({ where: { id }, data: body });
